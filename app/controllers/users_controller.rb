@@ -14,8 +14,18 @@ class UsersController < ApplicationController
         render :new
       end
   end
+  def search
+      user_search = UserSearch.new(params_user_search)
+      @users = user_search.execute
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def params_user_search
+    params.permit(:search_name)
+  end
+
 end
