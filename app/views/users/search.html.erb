@@ -13,19 +13,19 @@
           <% @users.each do |user| %>
             <% user.topics.each do |topic| %>
               <%= link_to topic_path(id: topic.id), method: :get do %>
-                <%= image_tag topic.image.url %>
+                <%= image_tag topic.image.url, :size => '200x200'%>
               <% end %>
               <% if !topic.favorite_users.include?(current_user) %>
                 <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon', :size => '50x30' %>
                 <% end %>
               <% else %>
                 <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon', :size => '50x30'  %>
                 <% end %>
               <% end %>
               <%= link_to new_comment_path(topic_id: topic.id), method: :get do %>
-                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+                <%= image_tag 'icons/comment.png', class: 'topic-index-icon', :size => '50x30'  %>
               <% end %>
             <% end %>
           <% end %>
