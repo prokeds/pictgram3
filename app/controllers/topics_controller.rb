@@ -9,7 +9,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    #code
+    @topic = Topic.find(params[:id])
   end
 
   def create

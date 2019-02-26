@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
   def search
       user_search = UserSearch.new(params_user_search)
-      @users = user_search.execute
+      @user = user_search.execute.first()
   end
 
   private
